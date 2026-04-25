@@ -1,0 +1,10 @@
+{
+  "id": "esp-idf",
+  "version": "1.0.0",
+  "name": "ESP-IDF",
+  "description": "Espressif IoT Development Framework",
+  "documentationURL": "https://github.com/artisme/devcontainer-images/tree/main/templates/esp-idf",
+  "licenseURL": "https://github.com/artisme/devcontainer-images/blob/main/LICENSE",
+  "fileCount": 1,
+  "options": {}
+}

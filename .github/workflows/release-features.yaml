@@ -1,0 +1,29 @@
+name: Release features
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "features/src/**"
+      - ".github/workflows/release-features.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: write # for generate-docs to commit updated READMEs
+  packages: write # for publishing OCI artifacts to GHCR
+
+jobs:
+  release:
+    name: Publish features
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish
+        uses: devcontainers/action@v1
+        with:
+          publish-features: "true"
+          base-path-to-features: "./features/src"
+          generate-docs: "true"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
