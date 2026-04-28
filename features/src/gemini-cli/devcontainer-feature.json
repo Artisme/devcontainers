@@ -12,7 +12,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "Google.gemini-companion-extension" 
+                "Google.gemini-cli-vscode-ide-companion" 
             ]
         }
     },
