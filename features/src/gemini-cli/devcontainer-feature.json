@@ -9,6 +9,13 @@
         },
         "ghcr.io/devcontainers/features/git:1": {}
     },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Google.gemini-companion-extension" 
+            ]
+        }
+    },
     "mounts": [
         {
             "source": "gemini-cli-oauth-store",
