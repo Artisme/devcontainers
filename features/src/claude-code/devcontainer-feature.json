@@ -1,8 +1,13 @@
 {
   "id": "claude-code",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "Claude Code",
   "description": "Installs Claude Code and configures global, cross-container config and authentication persistence.",
+  "customizations": {
+    "vscode": {
+      "extensions": ["anthropic.claude-code"]
+    }
+  },
   "mounts": [
     {
       "source": "claude-code-config-store",
