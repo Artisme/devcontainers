@@ -18,8 +18,8 @@ npm install -g @anthropic-ai/claude-code@latest
 # (root, vscode, node, etc.), the CLI can successfully write its config.
 echo "--> Provisioning shared configuration directory..."
 
-CONFIG_DIR="/usr/local/claude-config"
-CONFIG_JSON="/usr/local/claude-config.json"
+CONFIG_DIR="/usr/local/claude-config/.claude"
+CONFIG_JSON="/usr/local/claude-config/.claude.json"
 
 mkdir -p "${CONFIG_DIR}"
 chmod 777 "${CONFIG_DIR}"
@@ -39,12 +39,12 @@ echo "--> Configuring dynamic user environment bindings..."
 cat << 'EOF' > /etc/profile.d/claude-config-link.sh
 # Check if the user's .claude config path exists. If not, link it to the volume.
 if [ ! -e "${HOME}/.claude" ]; then
-    ln -sf /usr/local/claude-config "${HOME}/.claude"
+    ln -sf /usr/local/claude-config/.claude "${HOME}/.claude"
 fi
 
 # Check if the user's .claude.json config file exists. If not, link it to the volume.
 if [ ! -e "${HOME}/.claude.json" ]; then
-    ln -sf /usr/local/claude-config.json "${HOME}/.claude.json"
+    ln -sf /usr/local/claude-config/.claude.json "${HOME}/.claude.json"
 fi
 EOF
 
