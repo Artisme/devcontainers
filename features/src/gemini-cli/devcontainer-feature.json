@@ -1,23 +1,21 @@
 {
-    "id": "gemini-cli",
-    "version": "1.0.2",
-    "name": "Gemini CLI",
-    "description": "Installs the Gemini CLI and configures global, cross-container OAuth token persistence.",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "Google.gemini-cli-vscode-ide-companion"
-            ]
-        }
-    },
-    "mounts": [
-        {
-            "source": "gemini-cli-oauth-store",
-            "target": "/usr/local/gemini-auth",
-            "type": "volume"
-        }
-    ],
-    "dependsOn": {
-        "ghcr.io/devcontainers/features/node:1": {}
+  "id": "gemini-cli",
+  "version": "1.0.3",
+  "name": "Gemini CLI",
+  "description": "Installs the Gemini CLI and configures global, cross-container OAuth token persistence.",
+  "customizations": {
+    "vscode": {
+      "extensions": ["Google.gemini-cli-vscode-ide-companion"]
     }
+  },
+  "mounts": [
+    {
+      "source": "gemini-cli-oauth-store",
+      "target": "/usr/local/gemini-auth",
+      "type": "volume"
+    }
+  ],
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  }
 }

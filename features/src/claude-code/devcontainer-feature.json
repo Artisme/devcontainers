@@ -1,16 +1,16 @@
 {
-    "id": "claude-code",
-    "version": "1.0.0",
-    "name": "Claude Code",
-    "description": "Installs Claude Code and configures global, cross-container config and authentication persistence.",
-    "mounts": [
-        {
-            "source": "claude-code-config-store",
-            "target": "/usr/local/claude-config",
-            "type": "volume"
-        }
-    ],
-    "dependsOn": {
-        "ghcr.io/devcontainers/features/node:1": {}
+  "id": "claude-code",
+  "version": "1.0.1",
+  "name": "Claude Code",
+  "description": "Installs Claude Code and configures global, cross-container config and authentication persistence.",
+  "mounts": [
+    {
+      "source": "claude-code-config-store",
+      "target": "/usr/local/claude-config",
+      "type": "volume"
     }
+  ],
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  }
 }
