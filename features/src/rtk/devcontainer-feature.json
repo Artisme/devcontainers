@@ -1,0 +1,20 @@
+{
+  "id": "rtk",
+  "version": "1.0.0",
+  "name": "RTK (Rust Token Killer)",
+  "description": "Installs the RTK CLI proxy that reduces LLM token consumption by 60-90% on common dev commands, with persistent usage analytics across container rebuilds.",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "latest",
+      "description": "RTK version to install (e.g. '1.0.0'), or 'latest' for the most recent release."
+    }
+  },
+  "mounts": [
+    {
+      "source": "rtk-data-store",
+      "target": "/usr/local/rtk-data",
+      "type": "volume"
+    }
+  ]
+}
