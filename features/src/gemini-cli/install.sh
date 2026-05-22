@@ -10,6 +10,13 @@ echo "--> Initializing global Gemini CLI environment setup..."
 echo "--> Installing @google/gemini-cli..."
 npm install -g @google/gemini-cli@latest
 
+# Feature scripts run as root at build time, so npm creates the package
+# directory root-owned. Hand it to the non-root container user so the Gemini
+# CLI's built-in auto-updater can replace the install in place. Without this,
+# updates fail with EACCES and a full container rebuild is required to upgrade.
+echo "--> Granting ${_REMOTE_USER:-root} ownership of the install for self-update..."
+chown -R "${_REMOTE_USER:-root}" "$(npm root -g)/@google"
+
 # ---------------------------------------------------------------------------
 # 2. Configure Global OAuth Persistence Directory
 # ---------------------------------------------------------------------------

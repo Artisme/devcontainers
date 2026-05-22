@@ -1,6 +1,6 @@
 {
   "id": "gemini-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "name": "Gemini CLI",
   "description": "Installs the Gemini CLI and configures global, cross-container OAuth token persistence.",
   "customizations": {

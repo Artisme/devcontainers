@@ -10,6 +10,13 @@ echo "--> Initializing global Claude Code environment setup..."
 echo "--> Installing @anthropic-ai/claude-code..."
 npm install -g @anthropic-ai/claude-code@latest
 
+# Feature scripts run as root at build time, so npm creates the package
+# directory root-owned. Hand it to the non-root container user so Claude Code's
+# built-in auto-updater can replace the install in place. Without this, updates
+# fail with EACCES and a full container rebuild is required just to upgrade.
+echo "--> Granting ${_REMOTE_USER:-root} ownership of the install for self-update..."
+chown -R "${_REMOTE_USER:-root}" "$(npm root -g)/@anthropic-ai"
+
 # ---------------------------------------------------------------------------
 # 2. Configure Global Persistence Directory
 # ---------------------------------------------------------------------------
