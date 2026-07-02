@@ -1,0 +1,20 @@
+{
+  "id": "claude-code-ephemeral",
+  "version": "1.0.0",
+  "name": "Claude Code (Ephemeral)",
+  "description": "Installs Claude Code with in-memory (tmpfs) config and credentials that never touch disk and are wiped when the container stops. Intended for shared machines where a persistent credential volume would be a theft risk.",
+  "customizations": {
+    "vscode": {
+      "extensions": ["anthropic.claude-code"]
+    }
+  },
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/usr/local/claude-config"
+  },
+  "mounts": [
+    "type=tmpfs,target=/usr/local/claude-config,tmpfs-mode=1777"
+  ],
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  }
+}

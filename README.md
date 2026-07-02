@@ -20,6 +20,7 @@ A curated collection of reusable Developer Container (Devcontainer) features and
 
 - Provides an ESP-IDF template for rapid IoT firmware development.
 - Includes a feature for installing the `claude-code` CLI tool directly into your container.
+- Includes an ephemeral `claude-code` variant that keeps config/credentials in memory only and wipes them when the container stops (ideal for shared machines).
 - Includes a feature for installing the `gemini-cli` for AI-assisted development.
 - Extensible structure for adding more tools (like `rtk`) easily.
 
@@ -96,8 +97,9 @@ gemini --help
 .
 ├── features/
 │   └── src/
-│       ├── claude-code/      # Installs the Claude Code CLI tool
-│       ├── gemini-cli/       # Installs the Gemini CLI tool
+│       ├── claude-code/            # Installs the Claude Code CLI tool (persistent config)
+│       ├── claude-code-ephemeral/  # Claude Code with in-memory config wiped on stop
+│       ├── gemini-cli/             # Installs the Gemini CLI tool
 │       └── rtk/              # Installs the RTK dependencies
 └── templates/
     └── esp-idf/              # Complete devcontainer template for ESP-IDF
