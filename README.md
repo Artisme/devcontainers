@@ -21,6 +21,7 @@ A curated collection of reusable Developer Container (Devcontainer) features and
 - Provides an ESP-IDF template for rapid IoT firmware development.
 - Includes a feature for installing the `claude-code` CLI tool directly into your container.
 - Includes an ephemeral `claude-code` variant that keeps config/credentials in memory only and wipes them when the container stops (ideal for shared machines).
+- Includes a persistent `codex` feature that keeps OpenAI Codex config, authentication, and sessions across container rebuilds.
 - Includes a feature for installing the `gemini-cli` for AI-assisted development.
 - Extensible structure for adding more tools (like `rtk`) easily.
 
@@ -59,6 +60,7 @@ To use a feature from this repository in your own project, add it to your `devco
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/<your-github-username>/<repo-name>/claude-code:1": {},
+    "ghcr.io/<your-github-username>/<repo-name>/codex:1": {},
     "ghcr.io/<your-github-username>/<repo-name>/gemini-cli:1": {}
   }
 }
@@ -88,6 +90,7 @@ For features, simply refer to them in any `devcontainer.json` as shown in the In
 ```bash
 # Example usage inside the built container
 claude --version
+codex --version
 gemini --help
 ```
 
@@ -99,6 +102,7 @@ gemini --help
 │   └── src/
 │       ├── claude-code/            # Installs the Claude Code CLI tool (persistent config)
 │       ├── claude-code-ephemeral/  # Claude Code with in-memory config wiped on stop
+│       ├── codex/                  # Installs OpenAI Codex with persistent config and authentication
 │       ├── gemini-cli/             # Installs the Gemini CLI tool
 │       └── rtk/              # Installs the RTK dependencies
 └── templates/

@@ -1,0 +1,24 @@
+{
+  "id": "codex",
+  "version": "1.0.0",
+  "name": "OpenAI Codex",
+  "description": "Installs the OpenAI Codex CLI and configures global, cross-container config, authentication, and session persistence.",
+  "customizations": {
+    "vscode": {
+      "extensions": ["OpenAI.chatgpt"]
+    }
+  },
+  "containerEnv": {
+    "CODEX_HOME": "/usr/local/codex-config"
+  },
+  "mounts": [
+    {
+      "source": "codex-config-store",
+      "target": "/usr/local/codex-config",
+      "type": "volume"
+    }
+  ],
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  }
+}
