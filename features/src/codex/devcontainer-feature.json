@@ -1,6 +1,6 @@
 {
   "id": "codex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "OpenAI Codex",
   "description": "Installs the OpenAI Codex CLI and configures global, cross-container config, authentication, and session persistence.",
   "customizations": {
